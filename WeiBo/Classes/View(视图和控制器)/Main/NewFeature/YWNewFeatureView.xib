@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="YWNewFeatureView" customModule="WeiBo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dC-Pr-Boo">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </scrollView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPl-Be-ndp">
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="点击进入" backgroundImage="new_feature_finish_button"/>
+                    <state key="highlighted" backgroundImage="new_feature_finish_button_highlighted"/>
+                    <connections>
+                        <action selector="enterBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Mrd-bO-0pm"/>
+                    </connections>
+                </button>
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="wdb-wk-Rdi">
+                    <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9dC-Pr-Boo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3gV-Oi-1zD"/>
+                <constraint firstItem="gPl-Be-ndp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6V1-Nl-wMt"/>
+                <constraint firstItem="wdb-wk-Rdi" firstAttribute="centerX" secondItem="gPl-Be-ndp" secondAttribute="centerX" id="IxC-Ld-EVO"/>
+                <constraint firstAttribute="bottom" secondItem="9dC-Pr-Boo" secondAttribute="bottom" id="KiK-Hy-uJ2"/>
+                <constraint firstAttribute="trailing" secondItem="9dC-Pr-Boo" secondAttribute="trailing" id="chi-zj-GhZ"/>
+                <constraint firstItem="9dC-Pr-Boo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="e9m-H0-O3H"/>
+                <constraint firstAttribute="bottom" secondItem="gPl-Be-ndp" secondAttribute="bottom" constant="180" id="lGn-ht-MuN"/>
+                <constraint firstItem="wdb-wk-Rdi" firstAttribute="top" secondItem="gPl-Be-ndp" secondAttribute="bottom" constant="10" id="yRd-ta-eSJ"/>
+            </constraints>
+            <connections>
+                <outlet property="enterBtn" destination="gPl-Be-ndp" id="l0u-gJ-wTu"/>
+                <outlet property="pageControl" destination="wdb-wk-Rdi" id="yHZ-Wr-Qym"/>
+                <outlet property="scrollView" destination="9dC-Pr-Boo" id="dLC-p2-A2w"/>
+            </connections>
+            <point key="canvasLocation" x="-239" y="-14"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="new_feature_finish_button" width="105" height="36"/>
+        <image name="new_feature_finish_button_highlighted" width="105" height="36"/>
+    </resources>
+</document>

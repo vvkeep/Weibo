@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="oTZ-bT-yPq" customClass="YWComposeTypeView" customModule="WeiBo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sr7-bj-xiD">
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="u0h-3G-Qq2">
+                        <frame key="frameInset" width="100.00%" height="100.00%"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="compose_slogan" translatesAutoresizingMaskIntoConstraints="NO" id="qbz-iD-gl6"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXY-9x-ieO">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dY9-q5-BH1" userLabel="colseBtn">
+                                        <state key="normal" image="tabbar_compose_background_icon_close"/>
+                                        <connections>
+                                            <action selector="closeAction:" destination="oTZ-bT-yPq" eventType="touchUpInside" id="wXb-yK-CTR"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKr-xc-SaD" userLabel="returnBtn">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="9m4-fu-v7N"/>
+                                            <constraint firstAttribute="width" constant="25" id="ReI-2u-SCC"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="tabbar_compose_background_icon_return"/>
+                                        <connections>
+                                            <action selector="returnAction:" destination="oTZ-bT-yPq" eventType="touchUpInside" id="EmL-3h-lo0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dY9-q5-BH1" firstAttribute="centerY" secondItem="MXY-9x-ieO" secondAttribute="centerY" id="YpY-e6-vWS"/>
+                                    <constraint firstItem="CKr-xc-SaD" firstAttribute="centerX" secondItem="MXY-9x-ieO" secondAttribute="centerX" id="anB-gg-U7U"/>
+                                    <constraint firstItem="dY9-q5-BH1" firstAttribute="centerX" secondItem="MXY-9x-ieO" secondAttribute="centerX" id="cRb-UF-prG"/>
+                                    <constraint firstAttribute="height" constant="44" id="jAp-q4-jNe"/>
+                                    <constraint firstItem="CKr-xc-SaD" firstAttribute="centerY" secondItem="MXY-9x-ieO" secondAttribute="centerY" id="v2j-Ox-uai"/>
+                                </constraints>
+                            </view>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3F-dX-AKt">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="goa-19-oxo"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qbz-iD-gl6" firstAttribute="top" secondItem="u0h-3G-Qq2" secondAttribute="top" constant="100" id="0d9-wa-shV"/>
+                            <constraint firstAttribute="trailing" secondItem="M3F-dX-AKt" secondAttribute="trailing" id="1T7-89-aov"/>
+                            <constraint firstAttribute="trailing" secondItem="MXY-9x-ieO" secondAttribute="trailing" id="AlU-ZW-nzV"/>
+                            <constraint firstItem="qbz-iD-gl6" firstAttribute="centerX" secondItem="u0h-3G-Qq2" secondAttribute="centerX" id="LHV-Zc-o0V"/>
+                            <constraint firstAttribute="bottom" secondItem="MXY-9x-ieO" secondAttribute="bottom" id="MFH-bb-Xu3"/>
+                            <constraint firstItem="MXY-9x-ieO" firstAttribute="leading" secondItem="u0h-3G-Qq2" secondAttribute="leading" id="pxs-cQ-L9D"/>
+                            <constraint firstItem="MXY-9x-ieO" firstAttribute="top" secondItem="M3F-dX-AKt" secondAttribute="bottom" constant="56" id="tdH-Lq-jT7"/>
+                            <constraint firstItem="M3F-dX-AKt" firstAttribute="leading" secondItem="u0h-3G-Qq2" secondAttribute="leading" id="ynt-tt-BVY"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="sr7-bj-xiD" secondAttribute="trailing" id="CA6-x9-ZCR"/>
+                <constraint firstItem="sr7-bj-xiD" firstAttribute="leading" secondItem="oTZ-bT-yPq" secondAttribute="leading" id="mUW-nS-6Qc"/>
+                <constraint firstItem="sr7-bj-xiD" firstAttribute="top" secondItem="oTZ-bT-yPq" secondAttribute="top" id="qIr-FR-l4h"/>
+                <constraint firstAttribute="bottom" secondItem="sr7-bj-xiD" secondAttribute="bottom" id="sUO-7K-IZF"/>
+            </constraints>
+            <connections>
+                <outlet property="closeCenterX" destination="cRb-UF-prG" id="QRA-E8-8Kl"/>
+                <outlet property="returnBtn" destination="CKr-xc-SaD" id="HWl-41-XxS"/>
+                <outlet property="returnCenterX" destination="anB-gg-U7U" id="hGN-tx-y6L"/>
+                <outlet property="scrollView" destination="M3F-dX-AKt" id="LCB-RC-L9k"/>
+            </connections>
+            <point key="canvasLocation" x="143" y="241"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="compose_slogan" width="154" height="48"/>
+        <image name="tabbar_compose_background_icon_close" width="25" height="25"/>
+        <image name="tabbar_compose_background_icon_return" width="25" height="25"/>
+    </resources>
+</document>
