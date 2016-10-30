@@ -10,18 +10,11 @@ import Foundation
 
 //MARK: - 应用程序信息
 //应用程序 ID
-let YWAppKey = "230399048"
+let YWAppKey = ""
 //应用程序加密信息（开发者可以申请修改）
-let YWAppSecret = "2300ebab467f68ded929aae3dfa2e659"
+let YWAppSecret = ""
 //回调地址 登录完成的跳转 URL 参数以 get 形式拼接
-let YWRedirectURL = "https://www.baidu.com"
-
-////应用程序 ID
-//let YWAppKey = "147115757"
-////应用程序加密信息（开发者可以申请修改）
-//let YWAppSecret = "ab4a145e16dd1dceb74da938811a6822"
-////回调地址 登录完成的跳转 URL 参数以 get 形式拼接
-//let YWRedirectURL = "http://www.baidu.com"
+let YWRedirectURL = ""
 
 
 //MARK: - 全局通知定义

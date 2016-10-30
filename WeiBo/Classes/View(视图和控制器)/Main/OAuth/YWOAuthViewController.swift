@@ -52,7 +52,7 @@ class YWOAuthViewController: UIViewController {
     
     @objc private func autoFillAction(){
         //准备JS
-        let js = "document.getElementById('userId').value = '15919688564';" + "document.getElementById('passwd').value = 'ssjj.com';"
+        let js = "document.getElementById('userId').value = '你的微博账户';" + "document.getElementById('passwd').value = '你的微博密码';"
         //让webView 执行js
 //        webView.evaluateJavaScript(js, completionHandler: nil)
                 webView.stringByEvaluatingJavaScript(from: js)

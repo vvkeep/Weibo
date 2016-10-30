@@ -103,7 +103,7 @@ class YWStatusCell: UITableViewCell {
         self.layer.drawsAsynchronously = true
         
         //栅格化 - 异步绘制之后 ，会生成一张独立的图片 cell 在屏幕上滚动的时候，本质上滚动的是这张图片 
-        //cell 优化，要尽量减少图层的数量，想党羽只有一层
+        //cell 优化，要尽量减少图层的数量，想当于只有一层
         //停止滚动之后，可以接受监听
         self.layer.shouldRasterize = true
         
@@ -115,6 +115,16 @@ class YWStatusCell: UITableViewCell {
         statusLab.delegate = self
         retweededTextLab?.delegate = self
         
+        retweededTextLab?.layer.masksToBounds = true
+        retweededTextLab?.backgroundColor = UIColor.groupTableViewBackground
+        statusLab.layer.masksToBounds = true
+        statusLab.backgroundColor = UIColor.white
+        nameLab.layer.masksToBounds = true
+        nameLab.backgroundColor = UIColor.white
+        sourseLab.layer.masksToBounds = true
+        sourseLab.backgroundColor = UIColor.white
+        timeLab.layer.masksToBounds = true
+        timeLab.backgroundColor = UIColor.white
     }
 }
 
