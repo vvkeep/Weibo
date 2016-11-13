@@ -13,6 +13,9 @@ class YWEmoticonPackage: NSObject {
     /// 表情包的分组名
     var groupName: String?
     
+    /// 背景图片名称
+    var bgImageName: String?
+    
     /// 表情包目录，从目录下加载info.plist 可以创建表情模型数组
     var directory: String?{
         //当设置目录时候，从目录下加载 info.plist
@@ -29,6 +32,7 @@ class YWEmoticonPackage: NSObject {
             for m in modelArr {
                 m.directory = directory;
             }
+            
             //设置表情模型数组
             emoticonArr += modelArr
             print(emoticonArr.count)
@@ -37,6 +41,28 @@ class YWEmoticonPackage: NSObject {
     
     /// 懒加载表情模型空数组，使用懒加载可以避免后续的解包
     lazy var emoticonArr = [YWEmoticon]()
+    
+    /// 表情页面数量
+    var munberOfPages: Int {
+        return (emoticonArr.count - 1) / 20 + 1
+    }
+    
+    /// 从懒加载的表情包中，按照page 截取最多 20个表情模型的数组
+    func emoticon(page: Int) -> [YWEmoticon] {
+        //每一页数量
+        let count = 20
+        let location = page * count
+        var length = count
+        
+        if location + length > emoticonArr.count {
+            length = emoticonArr.count - location
+        }
+        
+        let range = NSRange(location: location, length: length)
+        let subArr = (emoticonArr as NSArray).subarray(with: range)
+        return subArr as! [YWEmoticon]
+    }
+    
     
     override var description: String{
         return yy_modelDescription()

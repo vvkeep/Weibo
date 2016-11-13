@@ -20,11 +20,23 @@ class YWEmoticon: NSObject {
     var png: String?
     
     /// emoji 16进制编码
-    var code: String?
+    var code: String? {
+        didSet {
+            guard let code = code else {
+                return
+            }
+            let scanner = Scanner(string: code)
+            var result: UInt32 = 0
+            scanner.scanHexInt32(&result)
+            emoji =  String(Character(UnicodeScalar(result)!))
+        }
+    }
     
     /// 表情模型所在的目录
     var directory: String?
     
+    /// emoji 的字符串
+    var emoji: String?
     
     /// 图片表情对用的图像
     var image:UIImage?{
@@ -49,13 +61,18 @@ class YWEmoticon: NSObject {
         }
         
         //创建文本附件 -图像
-        let attachment = NSTextAttachment()
+        let attachment = YWEmoticonAttachment()
+        //记录是属性文本
+        attachment.chs = chs
         attachment.image = image
         //lineHeight 大致和字体大小相等
         let height = font.lineHeight
         attachment.bounds = CGRect(x: 0, y: -4, width: height, height: height)
         //返回图像属性文本
-        return NSAttributedString(attachment: attachment)
+        let attrStrM = NSMutableAttributedString(attributedString: NSAttributedString(attachment: attachment))
+        //设置字体属性
+        attrStrM.addAttributes([NSFontAttributeName: font], range: NSRange(location: 0, length: 1))
+        return attrStrM
     }
    override var description: String{
         return yy_modelDescription()

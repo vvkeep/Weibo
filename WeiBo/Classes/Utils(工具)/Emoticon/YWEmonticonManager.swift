@@ -15,6 +15,13 @@ class YWEmoticonManager {
     /// 表情包懒加载数组
     lazy var packageArr = [YWEmoticonPackage]()
     
+    /// 表情素材的 bundle
+    lazy var bundle: Bundle = {
+        let path = Bundle.main.path(forResource: "HMEmoticon.bundle", ofType: nil)
+        
+        return Bundle(path: path!)!
+    }()
+    
     //构造函数 如果在init之前增加private 修饰符，可以要求调用者必须通过 shared 访问对象
     // OC 要重写 allocWithZone方法
    private init() {

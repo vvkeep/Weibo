@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 class YWComposeViewController: UIViewController {
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: YWComposeTextView!
     
     @IBOutlet weak var toolBar: UIToolbar!
     ///发布按钮
@@ -20,6 +20,11 @@ class YWComposeViewController: UIViewController {
     
     /// 工具栏底部约束
     @IBOutlet weak var toolBarBottomCons: NSLayoutConstraint!
+    
+    /// 表情输入视图
+    lazy var emoticonView: YWEmoticonInputView = YWEmoticonInputView.inputView { [weak self] (emoticon) in
+        self?.textView.insterEmoticon(em: emoticon)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         steupUI()
@@ -59,12 +64,13 @@ class YWComposeViewController: UIViewController {
     }
     /// 发布微博
     @IBAction func sendAction(_ sender: AnyObject) {
-        guard let text = textView.text else{
-            return
-        }
+        
+        
+        //获得发送微博的纯文本字符串
+        let text = textView.emoticonText
+        ///测试发送图片
         let image = UIImage(named: "icon_small_kangaroo_loading_1")
-        YWNetworkManager.shared.postStatus(text: text, image:image) { (result,isSuccess) in
-            print(result)
+        YWNetworkManager.shared.postStatus(text: text, image:nil) { (result,isSuccess) in
             let messaage = isSuccess ?"发布成功":"网络不给力"
             SVProgressHUD.setDefaultStyle(.dark)
             SVProgressHUD.showInfo(withStatus: messaage)
@@ -78,6 +84,15 @@ class YWComposeViewController: UIViewController {
         }
         
     }
+    
+    //切换表情键盘
+    @objc fileprivate func emoticonKeyboard() {
+        textView.inputView = (textView.inputView == nil) ? emoticonView : nil
+        //刷新键盘
+        textView.reloadInputViews()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -120,6 +135,13 @@ fileprivate extension YWComposeViewController{
             btn.setImage(image, for:.normal);
             btn.setImage(imageHL, for: .highlighted)
             btn.sizeToFit()
+            //判断 actionName
+            if let actionName = item["actionName"] {
+                //添加监听方法
+                btn.addTarget(self, action: #selector(emoticonKeyboard), for: .touchUpInside)
+            }
+            
+            
             //追加按钮
             itemArr.append(UIBarButtonItem(customView: btn))
             
