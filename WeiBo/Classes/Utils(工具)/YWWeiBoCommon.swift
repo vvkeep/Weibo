@@ -10,17 +10,17 @@ import Foundation
 
 
 //MARK: - 应用程序信息
-////应用程序 ID
-//let YWAppKey = ""
-////应用程序加密信息（开发者可以申请修改）
-//let YWAppSecret = ""
-////回调地址 登录完成的跳转 URL 参数以 get 形式拼接
-//let YWRedirectURL = ""
+//应用程序 ID
+let YWAppKey = ""
+//应用程序加密信息（开发者可以申请修改）
+let YWAppSecret = ""
+//回调地址 登录完成的跳转 URL 参数以 get 形式拼接
+let YWRedirectURL = ""
 
-////新浪微博用户名
-//let KUsername  = ""
-////新浪微博密码
-//let KPassword = ""
+//新浪微博用户名
+let KUsername  = ""
+//新浪微博密码
+let KPassword = ""
 
 //MARK: - 全局通知定义
 /// 用户需要登录通知
